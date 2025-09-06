@@ -1,0 +1,6 @@
+@TruYum_HostAddress = http://localhost:5030
+
+GET {{TruYum_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
