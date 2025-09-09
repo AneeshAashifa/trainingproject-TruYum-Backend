@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -10,9 +9,14 @@ using TruYum.Api.Hubs;
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
 
+// 🔹 Database
 builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseSqlServer(config.GetConnectionString("DefaultConnection")));
+
+// 🔹 SignalR
 builder.Services.AddSignalR();
+
+// 🔹 JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(o =>
     {
@@ -25,6 +29,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidAudience = config["Jwt:Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]!))
         };
+
+        // ✅ Allow JWT in query string for SignalR
         o.Events = new JwtBearerEvents
         {
             OnMessageReceived = context =>
@@ -42,17 +48,20 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
+// 🔹 Controllers
 builder.Services.AddControllers();
 
+// 🔹 CORS (allow Angular frontend)
 builder.Services.AddCors(options =>
 {
-options.AddPolicy("AllowAngularApp", p => p
-    .WithOrigins("http://localhost:4200")
-    .AllowAnyHeader()
-    .AllowAnyMethod()
-    .AllowCredentials());
+    options.AddPolicy("AllowAngularApp", p => p
+        .WithOrigins("http://localhost:4200") // frontend
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowCredentials());
 });
 
+// 🔹 Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -72,19 +81,28 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
+// 🔹 Seed DB with initial data
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     await DbInitializer.SeedAsync(db);
 }
 
+// 🔹 Middleware
 app.UseSwagger();
-app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "TruYum API v1"); c.RoutePrefix = "swagger"; });
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "TruYum API v1");
+    c.RoutePrefix = "swagger";
+});
 
-app.UseCors("AllowAngularApp");
 app.UseHttpsRedirection();
+
+app.UseCors("AllowAngularApp"); // ✅ must be before auth
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapControllers();
 app.MapHub<NotificationHub>("/hubs/notifications");
+
 app.Run();
