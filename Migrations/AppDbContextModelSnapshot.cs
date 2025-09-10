@@ -77,6 +77,11 @@ namespace TruYum.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(1024)
@@ -102,8 +107,6 @@ namespace TruYum.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MenuItems", (string)null);
-
-                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("TruYum.Api.Models.Order", b =>
@@ -191,55 +194,6 @@ namespace TruYum.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("TruYum.Api.Models.Beverage", b =>
-                {
-                    b.HasBaseType("TruYum.Api.Models.MenuItem");
-
-                    b.Property<bool>("IsIced")
-                        .HasColumnType("bit");
-
-                    b.Property<double>("VolumeMl")
-                        .HasColumnType("float");
-
-                    b.ToTable("Beverages", (string)null);
-                });
-
-            modelBuilder.Entity("TruYum.Api.Models.MainCourse", b =>
-                {
-                    b.HasBaseType("TruYum.Api.Models.MenuItem");
-
-                    b.Property<string>("Cuisine")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Size")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("MainCourses", (string)null);
-                });
-
-            modelBuilder.Entity("TruYum.Api.Models.Snack", b =>
-                {
-                    b.HasBaseType("TruYum.Api.Models.MenuItem");
-
-                    b.Property<bool>("Baked")
-                        .HasColumnType("bit");
-
-                    b.ToTable("Snacks", (string)null);
-                });
-
-            modelBuilder.Entity("TruYum.Api.Models.Starter", b =>
-                {
-                    b.HasBaseType("TruYum.Api.Models.MenuItem");
-
-                    b.Property<int>("Serves")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Spicy")
-                        .HasColumnType("bit");
-
-                    b.ToTable("Starters", (string)null);
-                });
-
             modelBuilder.Entity("TruYum.Api.Models.Cart", b =>
                 {
                     b.HasOne("TruYum.Api.Models.User", "User")
@@ -290,42 +244,6 @@ namespace TruYum.Migrations
                         .IsRequired();
 
                     b.Navigation("Order");
-                });
-
-            modelBuilder.Entity("TruYum.Api.Models.Beverage", b =>
-                {
-                    b.HasOne("TruYum.Api.Models.MenuItem", null)
-                        .WithOne()
-                        .HasForeignKey("TruYum.Api.Models.Beverage", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("TruYum.Api.Models.MainCourse", b =>
-                {
-                    b.HasOne("TruYum.Api.Models.MenuItem", null)
-                        .WithOne()
-                        .HasForeignKey("TruYum.Api.Models.MainCourse", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("TruYum.Api.Models.Snack", b =>
-                {
-                    b.HasOne("TruYum.Api.Models.MenuItem", null)
-                        .WithOne()
-                        .HasForeignKey("TruYum.Api.Models.Snack", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("TruYum.Api.Models.Starter", b =>
-                {
-                    b.HasOne("TruYum.Api.Models.MenuItem", null)
-                        .WithOne()
-                        .HasForeignKey("TruYum.Api.Models.Starter", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("TruYum.Api.Models.Cart", b =>

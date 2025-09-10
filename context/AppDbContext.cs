@@ -6,13 +6,8 @@ namespace TruYum.Api.Data
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-
-        // Base + derived sets
         public DbSet<MenuItem> MenuItems => Set<MenuItem>();
-        public DbSet<Beverage> Beverages => Set<Beverage>();
-        public DbSet<Starter> Starters => Set<Starter>();
-        public DbSet<MainCourse> MainCourses => Set<MainCourse>();
-        public DbSet<Snack> Snacks => Set<Snack>();
+
         public DbSet<Order> Orders => Set<Order>();
         public DbSet<OrderItem> OrderItems => Set<OrderItem>();
 
@@ -24,12 +19,8 @@ namespace TruYum.Api.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Use TPT (Table per Type) mapping – each derived type has its own table
+            // ✅ Single table mapping
             modelBuilder.Entity<MenuItem>().ToTable("MenuItems");
-            modelBuilder.Entity<Beverage>().ToTable("Beverages");
-            modelBuilder.Entity<Starter>().ToTable("Starters");
-            modelBuilder.Entity<MainCourse>().ToTable("MainCourses");
-            modelBuilder.Entity<Snack>().ToTable("Snacks");
 
             // Cart -> Items cascade
             modelBuilder.Entity<Cart>()
@@ -38,13 +29,12 @@ namespace TruYum.Api.Data
                 .HasForeignKey(i => i.CartId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // Seed minimal data via separate initializer
+            // Order -> Items cascade
             modelBuilder.Entity<Order>()
                 .HasMany(o => o.Items)
                 .WithOne(i => i.Order!)
                 .HasForeignKey(i => i.OrderId)
                 .OnDelete(DeleteBehavior.Cascade);
-
         }
     }
 }

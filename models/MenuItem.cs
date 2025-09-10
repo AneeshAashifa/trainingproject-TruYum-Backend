@@ -2,7 +2,7 @@
 
 namespace TruYum.Api.Models
 {
-    public abstract class MenuItem
+    public class MenuItem
     {
         public int Id { get; set; }
 
@@ -18,11 +18,11 @@ namespace TruYum.Api.Models
         public bool Active { get; set; } = true;
         public DateTime LaunchDate { get; set; } = DateTime.UtcNow;
 
-        // Optional common media fields
         public string? ImageUrl { get; set; }
         public bool Veg { get; set; } = true;
 
-        // NOTE: Category is implied by the derived table (Beverage/Starter/MainCourse/Snack)
+        // ✅ NEW FIELD (instead of different tables)
+        [Required, MaxLength(50)]
+        public string Category { get; set; } = string.Empty;
     }
 }
-

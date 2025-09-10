@@ -17,26 +17,25 @@ namespace TruYum.Api.Data
                 await db.SaveChangesAsync();
             }
 
-            if (!db.Beverages.Any() && !db.Starters.Any() && !db.MainCourses.Any() && !db.Snacks.Any())
+          
+            if (!db.MenuItems.Any())
             {
-                db.Beverages.AddRange(
-                    new Beverage { Name = "Cold Coffee", Description = "Refreshing iced coffee", Price = 149, Active = true, LaunchDate = DateTime.UtcNow.AddDays(-3), ImageUrl = null, Veg = true, IsIced = true, VolumeMl = 350 },
-                    new Beverage { Name = "Lemon Iced Tea", Description = "Zesty & chilled", Price = 129, Active = true, LaunchDate = DateTime.UtcNow.AddDays(-2), Veg = true, IsIced = true, VolumeMl = 400 }
-                );
+                db.MenuItems.AddRange(
+                    // Beverages
+                    new MenuItem { Name = "Cold Coffee", Description = "Refreshing iced coffee", Price = 149, Active = true, LaunchDate = DateTime.UtcNow.AddDays(-3), Veg = true, Category = "Beverage", ImageUrl = "/assets/images/beverages.jpg" },
+                    new MenuItem { Name = "Lemon Iced Tea", Description = "Zesty & chilled", Price = 129, Active = true, LaunchDate = DateTime.UtcNow.AddDays(-2), Veg = true, Category = "Beverage", ImageUrl = "/assets/images/beverages.jpg" },
 
-                db.Starters.AddRange(
-                    new Starter { Name = "Garlic Bread", Description = "Buttery garlic bread", Price = 99, Active = true, LaunchDate = DateTime.UtcNow.AddDays(-10), Veg = true, Spicy = false, Serves = 1 },
-                    new Starter { Name = "Chicken Wings", Description = "Spicy wings", Price = 249, Active = true, LaunchDate = DateTime.UtcNow.AddDays(-8), Veg = false, Spicy = true, Serves = 1 }
-                );
+                    // Starters
+                    new MenuItem { Name = "Garlic Bread", Description = "Buttery garlic bread", Price = 99, Active = true, LaunchDate = DateTime.UtcNow.AddDays(-10), Veg = true, Category = "Starter", ImageUrl = "/assets/images/starters.jpg" },
+                    new MenuItem { Name = "Chicken Wings", Description = "Spicy wings", Price = 249, Active = true, LaunchDate = DateTime.UtcNow.AddDays(-8), Veg = false, Category = "Starter", ImageUrl = "/assets/images/starters.jpg" },
 
-                db.MainCourses.AddRange(
-                    new MainCourse { Name = "Margherita Pizza", Description = "Classic cheese pizza", Price = 299, Active = true, LaunchDate = DateTime.UtcNow.AddDays(-12), Veg = true, Cuisine = "Italian", Size = "Medium" },
-                    new MainCourse { Name = "Veggie Supreme Pizza", Description = "Loaded veggies", Price = 349, Active = true, LaunchDate = DateTime.UtcNow.AddDays(-6), Veg = true, Cuisine = "Italian", Size = "Large" }
-                );
+                    // Main Courses
+                    new MenuItem { Name = "Margherita Pizza", Description = "Classic cheese pizza", Price = 299, Active = true, LaunchDate = DateTime.UtcNow.AddDays(-12), Veg = true, Category = "MainCourse", ImageUrl = "/assets/images/maincourses.jpg" },
+                    new MenuItem { Name = "Veggie Supreme Pizza", Description = "Loaded veggies", Price = 349, Active = true, LaunchDate = DateTime.UtcNow.AddDays(-6), Veg = true, Category = "MainCourse", ImageUrl = "/assets/images/maincourses.jpg" },
 
-                db.Snacks.AddRange(
-                    new Snack { Name = "French Fries", Description = "Crispy fries", Price = 99, Active = true, LaunchDate = DateTime.UtcNow.AddDays(-4), Veg = true, Baked = false },
-                    new Snack { Name = "Nachos", Description = "Cheesy nachos", Price = 149, Active = true, LaunchDate = DateTime.UtcNow.AddDays(-1), Veg = true, Baked = true }
+                    // Snacks
+                    new MenuItem { Name = "French Fries", Description = "Crispy fries", Price = 99, Active = true, LaunchDate = DateTime.UtcNow.AddDays(-4), Veg = true, Category = "Snack", ImageUrl = "/assets/images/snacks.jpg" },
+                    new MenuItem { Name = "Nachos", Description = "Cheesy nachos", Price = 149, Active = true, LaunchDate = DateTime.UtcNow.AddDays(-1), Veg = true, Category = "Snack", ImageUrl = "/assets/images/snacks.jpg" }
                 );
 
                 await db.SaveChangesAsync();
