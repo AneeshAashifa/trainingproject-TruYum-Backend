@@ -69,6 +69,38 @@
   },
   {
     "ContainingType": "TruYum.Api.Controllers.CartController",
+    "Method": "Decrease",
+    "RelativePath": "api/Cart/decrease/{menuItemId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "menuItemId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TruYum.Api.Controllers.CartController",
+    "Method": "Increase",
+    "RelativePath": "api/Cart/increase/{menuItemId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "menuItemId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TruYum.Api.Controllers.CartController",
     "Method": "Remove",
     "RelativePath": "api/Cart/remove/{menuItemId}",
     "HttpMethod": "DELETE",

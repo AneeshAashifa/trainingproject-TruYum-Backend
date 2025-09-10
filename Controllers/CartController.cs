@@ -25,54 +25,47 @@ namespace TruYum.Api.Controllers
             _hub = hub;
         }
 
-        // ✅ Safe UserId parsing
-        private int UserId
+        private int UserId => int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+
+        // 🔹 Helper: build cart DTO
+        private async Task<object?> BuildCartDto()
         {
-            get
-            {
-                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                if (string.IsNullOrEmpty(userId))
-                    throw new UnauthorizedAccessException("User is not authenticated.");
-                return int.Parse(userId);
-            }
+            return await _db.Carts
+                .Where(c => c.UserId == UserId)
+                .Include(c => c.Items).ThenInclude(i => i.MenuItem)
+                .Select(c => new
+                {
+                    c.Id,
+                    c.UserId,
+                    Items = c.Items.Select(i => new
+                    {
+                        i.MenuItemId,
+                        MenuItem = new
+                        {
+                            i.MenuItem!.Id,
+                            i.MenuItem.Name,
+                            i.MenuItem.Price,
+                            i.MenuItem.ImageUrl
+                        },
+                        i.Quantity
+                    }),
+                    Total = c.Items.Sum(i => i.MenuItem!.Price * i.Quantity)
+                })
+                .FirstOrDefaultAsync();
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var cart = await _db.Carts
-                .Include(c => c.Items).ThenInclude(i => i.MenuItem)
-                .FirstOrDefaultAsync(c => c.UserId == UserId);
-
-            if (cart == null)
-                return Ok(new { items = new object[0] });
-
-            var dto = new
-            {
-                cart.Id,
-                cart.UserId,
-                Items = cart.Items.Select(i => new
-                {
-                    i.MenuItemId,
-                    MenuItem = new
-                    {
-                        i.MenuItem!.Id,
-                        i.MenuItem.Name,
-                        i.MenuItem.Price,
-                        ImageUrl = i.MenuItem.ImageUrl
-                    },
-                    i.Quantity
-                })
-            };
-
-            return Ok(dto);
+            var cart = await BuildCartDto();
+            if (cart == null) return Ok(new { items = new object[0], total = 0 });
+            return Ok(cart);
         }
 
         [HttpPost("add/{menuItemId}")]
         public async Task<IActionResult> Add(int menuItemId)
         {
-            var cart = await _db.Carts
-                .Include(c => c.Items)
+            var cart = await _db.Carts.Include(c => c.Items)
                 .FirstOrDefaultAsync(c => c.UserId == UserId);
 
             if (cart == null)
@@ -89,39 +82,55 @@ namespace TruYum.Api.Controllers
 
             await _db.SaveChangesAsync();
 
-            var updatedCart = await _db.Carts
-                .Where(c => c.UserId == UserId)
-                .Include(c => c.Items).ThenInclude(i => i.MenuItem)
-                .Select(c => new
-                {
-                    c.Id,
-                    c.UserId,
-                    Items = c.Items.Select(i => new
-                    {
-                        i.MenuItemId,
-                        MenuItem = new
-                        {
-                            i.MenuItem!.Id,
-                            i.MenuItem.Name,
-                            i.MenuItem.Price,
-                            ImageUrl = i.MenuItem.ImageUrl
-                        },
-                        i.Quantity
-                    })
-                })
-                .FirstOrDefaultAsync();
-
-            // ✅ Fixed SignalR group naming
+            var updatedCart = await BuildCartDto();
             await _hub.Clients.Group($"user{UserId}").SendAsync("CartUpdated", updatedCart);
 
-            return Ok();
+            return Ok(updatedCart);
+        }
+
+        [HttpPost("increase/{menuItemId}")]
+        public async Task<IActionResult> Increase(int menuItemId)
+        {
+            var item = await _db.CartItems
+                .Include(i => i.Cart)
+                .FirstOrDefaultAsync(i => i.Cart!.UserId == UserId && i.MenuItemId == menuItemId);
+
+            if (item == null) return NotFound();
+
+            item.Quantity++;
+            await _db.SaveChangesAsync();
+
+            var updatedCart = await BuildCartDto();
+            await _hub.Clients.Group($"user{UserId}").SendAsync("CartUpdated", updatedCart);
+
+            return Ok(updatedCart);
+        }
+
+        [HttpPost("decrease/{menuItemId}")]
+        public async Task<IActionResult> Decrease(int menuItemId)
+        {
+            var item = await _db.CartItems
+                .Include(i => i.Cart)
+                .FirstOrDefaultAsync(i => i.Cart!.UserId == UserId && i.MenuItemId == menuItemId);
+
+            if (item == null) return NotFound();
+
+            item.Quantity--;
+            if (item.Quantity <= 0)
+                _db.CartItems.Remove(item);
+
+            await _db.SaveChangesAsync();
+
+            var updatedCart = await BuildCartDto();
+            await _hub.Clients.Group($"user{UserId}").SendAsync("CartUpdated", updatedCart);
+
+            return Ok(updatedCart);
         }
 
         [HttpDelete("remove/{menuItemId}")]
         public async Task<IActionResult> Remove(int menuItemId)
         {
-            var cart = await _db.Carts
-                .Include(c => c.Items)
+            var cart = await _db.Carts.Include(c => c.Items)
                 .FirstOrDefaultAsync(c => c.UserId == UserId);
 
             if (cart == null) return NotFound();
@@ -132,29 +141,7 @@ namespace TruYum.Api.Controllers
             cart.Items.Remove(item);
             await _db.SaveChangesAsync();
 
-            var updatedCart = await _db.Carts
-                .Where(c => c.UserId == UserId)
-                .Include(c => c.Items).ThenInclude(i => i.MenuItem)
-                .Select(c => new
-                {
-                    c.Id,
-                    c.UserId,
-                    Items = c.Items.Select(i => new
-                    {
-                        i.MenuItemId,
-                        MenuItem = new
-                        {
-                            i.MenuItem!.Id,
-                            i.MenuItem.Name,
-                            i.MenuItem.Price,
-                            ImageUrl = i.MenuItem.ImageUrl
-                        },
-                        i.Quantity
-                    })
-                })
-                .FirstOrDefaultAsync();
-
-            // ✅ Fixed SignalR group naming
+            var updatedCart = await BuildCartDto();
             await _hub.Clients.Group($"user{UserId}").SendAsync("CartUpdated", updatedCart);
 
             return NoContent();
