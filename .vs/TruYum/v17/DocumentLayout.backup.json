@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9F3A8778-237B-4A37-0D94-D981ACEBA05D}|TruYum.csproj|c:\\users\\aneesh aashifa\\truyum-trainingproject clone\\truyum-updated-backend\\context\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F3A8778-237B-4A37-0D94-D981ACEBA05D}|TruYum.csproj|solutionrelative:context\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F3A8778-237B-4A37-0D94-D981ACEBA05D}|TruYum.csproj|c:\\users\\aneesh aashifa\\truyum-trainingproject clone\\truyum-updated-backend\\controllers\\menuitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F3A8778-237B-4A37-0D94-D981ACEBA05D}|TruYum.csproj|solutionrelative:controllers\\menuitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9F3A8778-237B-4A37-0D94-D981ACEBA05D}|TruYum.csproj|c:\\users\\aneesh aashifa\\truyum-trainingproject clone\\truyum-updated-backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9F3A8778-237B-4A37-0D94-D981ACEBA05D}|TruYum.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -25,14 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9F3A8778-237B-4A37-0D94-D981ACEBA05D}|TruYum.csproj|c:\\users\\aneesh aashifa\\truyum-trainingproject clone\\truyum-updated-backend\\dtos\\menudtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9F3A8778-237B-4A37-0D94-D981ACEBA05D}|TruYum.csproj|solutionrelative:dtos\\menudtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F3A8778-237B-4A37-0D94-D981ACEBA05D}|TruYum.csproj|c:\\users\\aneesh aashifa\\truyum-trainingproject clone\\truyum-updated-backend\\controllers\\menuitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F3A8778-237B-4A37-0D94-D981ACEBA05D}|TruYum.csproj|solutionrelative:controllers\\menuitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F3A8778-237B-4A37-0D94-D981ACEBA05D}|TruYum.csproj|c:\\users\\aneesh aashifa\\truyum-trainingproject clone\\truyum-updated-backend\\context\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F3A8778-237B-4A37-0D94-D981ACEBA05D}|TruYum.csproj|solutionrelative:context\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9F3A8778-237B-4A37-0D94-D981ACEBA05D}|TruYum.csproj|c:\\users\\aneesh aashifa\\truyum-trainingproject clone\\truyum-updated-backend\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,7 +70,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "20250910104609_singletablemenu.cs",
               "DocumentMoniker": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\Migrations\\20250910104609_singletablemenu.cs",
               "RelativeDocumentMoniker": "Migrations\\20250910104609_singletablemenu.cs",
@@ -78,24 +78,11 @@
               "RelativeToolTip": "Migrations\\20250910104609_singletablemenu.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T10:46:11.121Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-10T10:46:11.121Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Cart.cs",
-              "DocumentMoniker": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\models\\Cart.cs",
-              "RelativeDocumentMoniker": "models\\Cart.cs",
-              "ToolTip": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\models\\Cart.cs",
-              "RelativeToolTip": "models\\Cart.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T10:37:09.841Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "CartItem.cs",
               "DocumentMoniker": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\models\\CartItem.cs",
               "RelativeDocumentMoniker": "models\\CartItem.cs",
@@ -103,32 +90,7 @@
               "RelativeToolTip": "models\\CartItem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T10:37:03.754Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NotificationHub.cs",
-              "DocumentMoniker": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\Hubs\\NotificationHub.cs",
-              "RelativeDocumentMoniker": "Hubs\\NotificationHub.cs",
-              "ToolTip": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\Hubs\\NotificationHub.cs",
-              "RelativeToolTip": "Hubs\\NotificationHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T10:34:33.979Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MenuDtos.cs",
-              "DocumentMoniker": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\Dtos\\MenuDtos.cs",
-              "RelativeDocumentMoniker": "Dtos\\MenuDtos.cs",
-              "ToolTip": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\Dtos\\MenuDtos.cs",
-              "RelativeToolTip": "Dtos\\MenuDtos.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T10:32:17.082Z"
+              "WhenOpened": "2025-09-10T10:37:03.754Z"
             },
             {
               "$type": "Document",
@@ -168,40 +130,76 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAkwD0AAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAkwD0AAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-09T15:36:30.14Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-09T15:36:30.14Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DbInitializer.cs",
-              "DocumentMoniker": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\context\\DbInitializer.cs",
-              "RelativeDocumentMoniker": "context\\DbInitializer.cs",
-              "ToolTip": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\context\\DbInitializer.cs",
-              "RelativeToolTip": "context\\DbInitializer.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAC0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T08:51:52.962Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "MenuItemsController.cs",
               "DocumentMoniker": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\Controllers\\MenuItemsController.cs",
               "RelativeDocumentMoniker": "Controllers\\MenuItemsController.cs",
               "ToolTip": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\Controllers\\MenuItemsController.cs",
               "RelativeToolTip": "Controllers\\MenuItemsController.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAowGoAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAGgAAAAAAAAAAAA6wGAAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-09T15:37:14.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DbInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\context\\DbInitializer.cs",
+              "RelativeDocumentMoniker": "context\\DbInitializer.cs",
+              "ToolTip": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\context\\DbInitializer.cs",
+              "RelativeToolTip": "context\\DbInitializer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T08:51:52.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MenuDtos.cs",
+              "DocumentMoniker": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\Dtos\\MenuDtos.cs",
+              "RelativeDocumentMoniker": "Dtos\\MenuDtos.cs",
+              "ToolTip": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\Dtos\\MenuDtos.cs",
+              "RelativeToolTip": "Dtos\\MenuDtos.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T10:32:17.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NotificationHub.cs",
+              "DocumentMoniker": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\Hubs\\NotificationHub.cs",
+              "RelativeDocumentMoniker": "Hubs\\NotificationHub.cs",
+              "ToolTip": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\Hubs\\NotificationHub.cs",
+              "RelativeToolTip": "Hubs\\NotificationHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T10:34:33.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\models\\Cart.cs",
+              "RelativeDocumentMoniker": "models\\Cart.cs",
+              "ToolTip": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\models\\Cart.cs",
+              "RelativeToolTip": "models\\Cart.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T10:37:09.841Z"
             },
             {
               "$type": "Document",
