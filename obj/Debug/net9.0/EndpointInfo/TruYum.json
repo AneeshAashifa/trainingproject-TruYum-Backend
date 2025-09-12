@@ -400,6 +400,13 @@
           "active": {
             "type": "boolean"
           },
+          "launchDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "veg": {
+            "type": "boolean"
+          },
           "category": {
             "type": "string",
             "nullable": true

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TruYum.Api.Data;
 using TruYum.Api.Models;
@@ -36,7 +37,7 @@ namespace TruYum.Api.Controllers
             return Ok(item);
         }
 
-       
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> AddItem([FromBody] MenuItemDto item)
         {
@@ -50,7 +51,7 @@ namespace TruYum.Api.Controllers
                 Active = item.Active,
                 LaunchDate = DateTime.Now,
                 ImageUrl = item.ImageUrl,
-                Veg = true,
+                Veg = item.Veg,
                 Category = item.Category
             };
 
@@ -60,7 +61,7 @@ namespace TruYum.Api.Controllers
             return Ok(new { message = "✅ Item added successfully", menuItem });
         }
 
-        
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateItem(int id, [FromBody] MenuItemDto item)
         {
@@ -74,13 +75,14 @@ namespace TruYum.Api.Controllers
             menuItem.Price = item.Price;
             menuItem.Active = item.Active;
             menuItem.ImageUrl = item.ImageUrl;
+            menuItem.Veg = item.Veg;
             menuItem.Category = item.Category;
 
             await _db.SaveChangesAsync();
             return Ok(new { message = "✅ Item updated successfully", menuItem });
         }
 
-        
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteItem(int id)
         {
@@ -101,6 +103,8 @@ namespace TruYum.Api.Controllers
         public string Description { get; set; } = "";
         public decimal Price { get; set; }
         public bool Active { get; set; }
+        public DateTime LaunchDate { get; set; } 
+        public bool Veg { get; set; } = true;
         public string Category { get; set; } = "";
         public string ImageUrl { get; set; } = "";
     }

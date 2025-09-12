@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TruYum.Api.Models;
+using TruYum.models;
 
 namespace TruYum.Api.Data
 {

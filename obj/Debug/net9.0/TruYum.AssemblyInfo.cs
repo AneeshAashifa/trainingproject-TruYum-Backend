@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TruYum")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7725459cb71525b1c855a7253eecfafe63045095")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eabed9298e1259a7163e454841a075d95986e221")]
 [assembly: System.Reflection.AssemblyProductAttribute("TruYum")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TruYum")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
