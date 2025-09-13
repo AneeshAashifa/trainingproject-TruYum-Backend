@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using TruYum.models;
 
 namespace TruYum.Api.Models
 {
@@ -6,23 +8,24 @@ namespace TruYum.Api.Models
     {
         public int Id { get; set; }
 
-        [Required, MaxLength(120)]
-        public string Name { get; set; } = string.Empty;
+        [Required, MaxLength(100)]
+        public string Name { get; set; } = "";
 
-        [MaxLength(1024)]
-        public string Description { get; set; } = string.Empty;
+        [MaxLength(500)]
+        public string Description { get; set; } = "";
 
-        [Range(0, 100000)]
+        [Column(TypeName = "decimal(10,2)")]
         public decimal Price { get; set; }
 
-        public bool Active { get; set; } = true;
+        public bool Active { get; set; }
         public DateTime LaunchDate { get; set; } = DateTime.UtcNow;
 
         public string? ImageUrl { get; set; }
-        public bool Veg { get; set; } = true;
 
-        // ✅ NEW FIELD (instead of different tables)
-        [Required, MaxLength(50)]
-        public string Category { get; set; } = string.Empty;
+        public bool Veg { get; set; }
+
+        // 🔹 Normalized Category
+        public int CategoryId { get; set; }   // FK
+        public Category? Category { get; set; } // Navigation property
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "trugCM8Cup0=",
+  "dgSpecHash": "3AMeoG/IOzQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\TruYum.csproj",
+  "projectFilePath": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\TruyumbackendCat\\truyum-updated-backend\\TruYum.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ANEESH AASHIFA\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\ANEESH AASHIFA\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

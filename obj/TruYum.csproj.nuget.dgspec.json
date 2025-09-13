@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\TruYum.csproj": {}
+    "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\TruyumbackendCat\\truyum-updated-backend\\TruYum.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\TruYum.csproj": {
+    "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\TruyumbackendCat\\truyum-updated-backend\\TruYum.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\TruYum.csproj",
+        "projectUniqueName": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\TruyumbackendCat\\truyum-updated-backend\\TruYum.csproj",
         "projectName": "TruYum",
-        "projectPath": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\TruYum.csproj",
+        "projectPath": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\TruyumbackendCat\\truyum-updated-backend\\TruYum.csproj",
         "packagesPath": "C:\\Users\\ANEESH AASHIFA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\truyum-updated-backend\\obj\\",
+        "outputPath": "C:\\Users\\ANEESH AASHIFA\\TruYum-TrainingProject clone\\TruyumbackendCat\\truyum-updated-backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

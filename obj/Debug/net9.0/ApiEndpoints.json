@@ -116,6 +116,85 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "TruYum.Api.Controllers.CategoriesController",
+    "Method": "GetAll",
+    "RelativePath": "api/Categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TruYum.Api.Controllers.CategoriesController",
+    "Method": "Add",
+    "RelativePath": "api/Categories",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "TruYum.models.Category",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TruYum.Api.Controllers.CategoriesController",
+    "Method": "GetById",
+    "RelativePath": "api/Categories/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TruYum.Api.Controllers.CategoriesController",
+    "Method": "Update",
+    "RelativePath": "api/Categories/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updated",
+        "Type": "TruYum.models.Category",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TruYum.Api.Controllers.CategoriesController",
+    "Method": "Delete",
+    "RelativePath": "api/Categories/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TruYum.Api.Controllers.MenuController",
     "Method": "GetAll",
     "RelativePath": "api/Menu",
@@ -124,8 +203,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "category",
-        "Type": "System.String",
+        "Name": "categoryId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
     ],
@@ -140,8 +219,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "item",
-        "Type": "TruYum.Api.Controllers.MenuItemDto",
+        "Name": "dto",
+        "Type": "TruYum.Api.Dtos.MenuItemCreateDto",
         "IsRequired": true
       }
     ],
@@ -177,8 +256,8 @@
         "IsRequired": true
       },
       {
-        "Name": "item",
-        "Type": "TruYum.Api.Controllers.MenuItemDto",
+        "Name": "dto",
+        "Type": "TruYum.Api.Dtos.MenuItemCreateDto",
         "IsRequired": true
       }
     ],

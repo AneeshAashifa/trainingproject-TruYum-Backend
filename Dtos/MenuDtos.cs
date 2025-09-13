@@ -10,7 +10,8 @@
         DateTime LaunchDate,
         string? ImageUrl,
         bool Veg,
-        string Category
+        int CategoryId, 
+        string CategoryName
     );
 
     // DTO for creating/updating items
@@ -21,6 +22,6 @@
         bool Active,
         string? ImageUrl,
         bool Veg,
-        string Category   // "Beverage", "Starter", "MainCourse", "Snack"
+        int CategoryId   
     );
 }

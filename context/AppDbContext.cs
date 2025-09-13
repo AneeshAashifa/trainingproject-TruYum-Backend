@@ -8,10 +8,9 @@ namespace TruYum.Api.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
         public DbSet<MenuItem> MenuItems => Set<MenuItem>();
-
         public DbSet<Order> Orders => Set<Order>();
         public DbSet<OrderItem> OrderItems => Set<OrderItem>();
-
+        public DbSet<Category> Categories => Set<Category>();
         public DbSet<User> Users => Set<User>();
         public DbSet<Cart> Carts => Set<Cart>();
         public DbSet<CartItem> CartItems => Set<CartItem>();
@@ -22,7 +21,13 @@ namespace TruYum.Api.Data
 
             // ✅ Single table mapping
             modelBuilder.Entity<MenuItem>().ToTable("MenuItems");
-
+            modelBuilder.Entity<Category>().ToTable("Categories");
+            // 🔹 Category → MenuItems relationship
+            modelBuilder.Entity<MenuItem>()
+                .HasOne(m => m.Category)
+                .WithMany(c => c.MenuItems)
+                .HasForeignKey(m => m.CategoryId)
+                .OnDelete(DeleteBehavior.Restrict);
             // Cart -> Items cascade
             modelBuilder.Entity<Cart>()
                 .HasMany(c => c.Items)
