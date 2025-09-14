@@ -21,6 +21,12 @@ namespace TruYum.Api.Controllers
             var query = _db.MenuItems
                 .AsNoTracking()
                 .Include(m => m.Category)
+                .AsQueryable();
+
+            if (categoryId.HasValue)
+                query = query.Where(m => m.CategoryId == categoryId.Value);
+
+            var items = await query
                 .Select(m => new MenuItemDto(
                     m.Id,
                     m.Name,
@@ -32,12 +38,9 @@ namespace TruYum.Api.Controllers
                     m.Veg,
                     m.CategoryId,
                     m.Category.Name
-                ));
+                ))
+                .ToListAsync();
 
-            if (categoryId.HasValue)
-                query = query.Where(x => x.CategoryId == categoryId.Value);
-
-            var items = await query.ToListAsync();
             return Ok(items);
         }
 

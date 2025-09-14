@@ -11,7 +11,10 @@ var config = builder.Configuration;
 
 // 🔹 Database
 builder.Services.AddDbContext<AppDbContext>(opt =>
-    opt.UseSqlServer(config.GetConnectionString("DefaultConnection")));
+    opt.UseSqlServer(config.GetConnectionString("DefaultConnection"))
+       .EnableSensitiveDataLogging() // ✅ only for dev
+       .EnableDetailedErrors()  // ✅ only for dev
+    );
 
 // 🔹 SignalR
 builder.Services.AddSignalR();
